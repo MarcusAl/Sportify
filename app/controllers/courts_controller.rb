@@ -8,11 +8,17 @@ class CourtsController < ApplicationController
     end
 
     def create
-        @court = Court.new(strong_params)
+        @court = Court.new(court_params)
+        @court.save
         if @court.save
             redirect_to courts_path
         else
             render :new
         end
+    end
+
+    private
+    def court_params
+        params.require(:court).permit(:user_id, :address, :price, :photo)
     end
 end

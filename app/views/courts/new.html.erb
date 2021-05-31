@@ -1,0 +1,7 @@
+<%= simple_form_for @court do |f| %>
+  <%= f.input :user_id %>
+  <%= f.input :address %>
+  <%= f.input :price, as: :numeric %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>

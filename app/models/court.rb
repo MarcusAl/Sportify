@@ -4,5 +4,5 @@ class Court < ApplicationRecord
   has_many :users, through: :bookings
   validates :address, presence: true
   validates :price, presence: true
-  has_many_attached :photos
+  has_one_attached :photo
 end

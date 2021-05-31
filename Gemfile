@@ -25,6 +25,7 @@ gem "orm_adapter"
 gem 'dotenv-rails'
 gem 'cloudinary'
 
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
