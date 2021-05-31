@@ -1,22 +1,43 @@
 <div class="banner">
     <nav class="navbar">
-      <div class="nav-logo">
+<%# Nav Logo Row %>
+      <div class="nav-logo d-flex">
+        <i class="fab fa-spotify nav-logo-icon mr-3 font-weight-bold"></i>
         <a href="https://www.google.com" target="_blank_">
-          <h3>Mendio</h3>
+          <h3 class="font-weight-bold">Sportify</h3>
         </a>
       </div>
-        <ul class="navbar-link-container">
-          <li class="navbar-link">
+<%# Middle Row %>
+      <div class="d-inline-flex">
+        <li class="navbar-link rounded p-3 text-center">
+          <a href="https://www.google.com" target="_blank_">
+            Book a court
+          </a>
+        </li>
+        <li class="navbar-link rounded p-3 text-center">
+          <a href="https://www.google.com" target="_blank_">
+            Courts near you
+          </a>
+        </li>
+        <li class="navbar-link rounded p-3 text-center">
+          <a href="https://www.google.com" target="_blank_">
+            Best sellers
+          </a>
+        </li>
+      </div>
+<%# End Row %>
+      <div class="d-inline-flex shadow-sm rounded p-3 text-center">
+          <li class="navbar-link-end text-center">
             <a href="https://www.google.com" target="_blank_">
               Product
             </a>
           </li>
-          <li class="navbar-link">
+          <li class="navbar-link-end text-center">
             <a href="https://www.google.com" target="_blank_">
               Features
             </a>
           </li>
-          <li class="navbar-link m-0" id="dropdown_login">
+          <li class="navbar-link-end m-0 text-center" id="dropdown_login">
             <a href="http://" target="_blank">
               <i class="fas fa-bars m-0" id="burger-icon"></i>
             </a>
@@ -24,5 +45,6 @@
               <i class="fas fa-user m-0" id="login-icon"></i>
             </a>
           </li>
-        </ul>
+      
+      </div>
     </nav>
