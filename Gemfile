@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem "orm_adapter"
 gem 'dotenv-rails'
 gem 'cloudinary'
-
+gem 'faker'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
