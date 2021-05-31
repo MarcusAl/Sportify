@@ -1,12 +1,63 @@
-.navbar-lewagon {
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+  background-color: grey;
+}
+.navbar {
+  display: flex;
+  width: 90%;
+  height: max-content;
+  margin: 20px auto;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
   justify-content: space-between;
-  background: white;
+  align-items: center;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-link-container {
+  display: inline-flex;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-link {
+  list-style: none;
+  margin: 0 20px 0px 20px;
+  padding: 10px 0 10px 0;
+}
+
+.navbar-link > a,
+.nav-logo > a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #F5F5F5;
+}
+
+.navbar-link > a:hover,
+.navbar-logo:hover {
+  filter: brightness(300%);
+}
+
+.nav-logo {
+  margin-left: 20px;
+}
+
+#login-icon {
+  background-color: black;
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+}
+
+#burger-icon {
+  background-color: black;
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+}
+
+#dropdown_login {
+  background-color: black;
+  border-radius: 25px;
 }
