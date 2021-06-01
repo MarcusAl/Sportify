@@ -1,6 +1,6 @@
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :user_id %>
-  <%= f.input :court_id %>
+<%= simple_form_for [@user, @court, @booking] do |f| %>
   <%= f.input :date %>
   <%= f.submit %>
 <% end %>
+
+<%= link_to "Go Back", court_path(@court.id) %>
