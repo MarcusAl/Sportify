@@ -1,24 +1,26 @@
 <div class="container">
-<% if user_signed_in? %>
-<%= link_to "Signed Out",  destroy_user_session_path, method: :delete %>
-<% else %>
-<%= link_to "Go to Login", user_session_path %>
-<% end %>
+  <% if user_signed_in? %>
+  <%= link_to "Signed Out",  destroy_user_session_path, method: :delete %>
+  <% else %>
+  <%= link_to "Go to Login", user_session_path %>
+  <% end %>
 
-<div class="row justify-content-center">
-  <div class="col-6 m-3">
-    <% @bookings.each do |booking| %>
-      <div class="border m-3">
-        <div class="card-img">
-          <% if booking.court.photos.attached? %>
-            <%= cl_image_tag booking.court.photos[0].key, alt: "alttext", height: 100, width: 120, crop: :fill %>
-          <% else %>
-            <%= image_tag "https://www.openplay.co.uk/uploads/6Z9XOO8BE6cxIW6b-600x_.jpg", alt: "alttext" %>
-          <% end %>
+  <div class="row justify-content-center bg-light rounded">
+    <div class="row justify-content-center">
+      <% @bookings.each do |booking| %>
+        <div class=" col-5 bookings-card border m-3 rounded">
+          <div class="card-img ">
+            <% if booking.court.photos.attached? %>
+              <%= cl_image_tag booking.court.photos[0].key, alt: "alttext", height: 200, width: 400, crop: :fill %>
+            <% else %>
+              <%= image_tag "https://www.openplay.co.uk/uploads/6Z9XOO8BE6cxIW6b-600x_.jpg", alt: "alttext", height: 200, width: 400 %>
+            <% end %>
+          </div>
+          <h2><%= booking.court.address %></h2>
+          <p>You will be playing on the<%= booking.date %></p>
         </div>
-        <h4><%= booking.date %></h4>
-      </div>
-    <% end %>
+      <% end %>
+  </div>
 </div>
 
 
