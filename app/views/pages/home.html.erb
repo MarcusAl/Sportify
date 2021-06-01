@@ -1,5 +1,12 @@
-<h1>Pages#home</h1>
-<h1>HIIII</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container w-100 justify-content-center d-flex">
+    <%= render 'searchnav' %>
+</div>
+<div class="d-inline-flex mr-5">
+  <div class="banner-image-container mr-5">
+    <%= image_tag("mega-creator.png", class: 'banner-image', size: "900", alt: "Edit Entry") %>
+  </div>
+  <div class="container border-success h-100">
+    <%# <%= link_to "COURTS", courts_path %>
+  </div>
+</div>
 
-<%= link_to "COURTS", courts_path %>
