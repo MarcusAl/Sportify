@@ -1,6 +1,6 @@
 class CourtsController < ApplicationController
     def index
-        @courts = Court.all
+      @courts = Court.all
     end
 
     def show
@@ -25,5 +25,13 @@ class CourtsController < ApplicationController
 private
     def court_params
         params.require(:court).permit(:user_id, :address, :price, :description, :surfaces, :category, photos: [])
+
     end
+  end
+
+  private
+
+  def court_params
+    params.require(:court).permit(:user_id, :address, :price, photos: [])
+  end
 end

@@ -43,7 +43,7 @@ puts "finsihed!"
 puts "creating court"
 Court.create!(
   user_id: 3,
-  address: Faker::Address.full_address,
+  address: Faker::Address.city,
   price: 65.50,
   description: 'Beautiful grass tennis court in pristine condition'
   )
@@ -52,7 +52,7 @@ puts "finsihed!"
 puts "creating court"
 Court.create!(
   user_id: 3,
-  address: Faker::Address.full_address,
+  address: Faker::Address.city,
   price: 45.00,
   description: 'Very nice, real clay tennis court in great condition, well kept and ready to be played on!'
   )

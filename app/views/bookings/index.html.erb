@@ -1,0 +1,39 @@
+<div class="container">
+<% if user_signed_in? %>
+<%= link_to "Signed Out",  destroy_user_session_path, method: :delete %>
+<% else %>
+<%= link_to "Go to Login", user_session_path %>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-6 m-3">
+    <% @bookings.each do |booking| %>
+      <div class="container border m-3">
+        <div class="card-img">
+
+        </div>
+        <h4><%= booking.date %></h4>
+      </div>
+    <% end %>
+</div>
+
+
+      <!-- <div class="row justify-content-center">
+            <div class="col-6 m-3">
+                  < @courts.each do |court| %>
+                  <= link_to court_path(court.id) do%>
+                        <div class="container m-3 p-3 border">
+                              < if court.photos.attached? %>
+                                    < court.photos.each do |photo| %>
+                          = cl_image_tag photo.key, height: 100, width: 120, crop: :fill %>
+                                    < end %>
+                              < end %>
+                              <= court.address %>
+                              <= court.price %>
+                        </div>
+                        < end %>
+                  < end %>
+            </div>
+      </div>
+</div>
+ -->
