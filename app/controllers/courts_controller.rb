@@ -27,11 +27,4 @@ private
         params.require(:court).permit(:user_id, :address, :price, :description, :surfaces, :category, photos: [])
 
     end
-  end
-
-  private
-
-  def court_params
-    params.require(:court).permit(:user_id, :address, :price, photos: [])
-  end
 end
