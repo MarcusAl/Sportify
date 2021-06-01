@@ -4,13 +4,17 @@
 // }
 
 body {
-  background-color: #52b788;
+  // background-color: #52b788;
+  background: rgb(82,183,136);
+  background: linear-gradient(90deg, rgba(82,183,102,1) 0%, rgba(82,183,136,1) 35%, rgba(204,247,136,1) 100%);
   overflow: hidden;
 }
 
 .container-split:before {
   content: "";
-  background-color: #ccd166;
+  // background-color: #ccd166;
+  // background: rgb(204,209,102);
+  // background: linear-gradient(90deg, rgba(82,183,102,1) 0%, rgba(82,183,136,1) 35%, rgba(204,209,102,1) 100%);
   position: absolute;
   // border: 2px solid white;
   height: 100%;
