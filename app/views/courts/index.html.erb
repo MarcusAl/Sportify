@@ -6,4 +6,5 @@
 <%= cl_image_tag(court.photo.key,
       width: 400, height: 300, crop: :fill) %>
 <% end %>
+<%= render 'shared/court_card', court: court %>
 <% end %>

@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: :delete
+  get "/pages/card", to: "pages#card"
 end
+
+

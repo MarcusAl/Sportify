@@ -147,9 +147,6 @@ GEM
     rack (2.2.3)
     rack-proxy (0.7.0)
       rack
-    rack-synctime (0.0.2)
-      bundler (>= 1.0)
-      rack (>= 1.2.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3.7)
@@ -272,7 +269,6 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 4.1)
-  rack-synctime
   rails (~> 6.0.3, >= 6.0.3.7)
   sass-rails (>= 6)
   selenium-webdriver
