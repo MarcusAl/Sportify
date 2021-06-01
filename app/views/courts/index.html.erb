@@ -1,0 +1,9 @@
+<% @courts.each do |court| %>
+
+<%= court.address %>
+<%= court.price %>
+<% if court.photo.attached? %>
+<%= cl_image_tag(court.photo.key,
+      width: 400, height: 300, crop: :fill) %>
+<% end %>
+<% end %>
