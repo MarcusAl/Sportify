@@ -9,10 +9,10 @@
 <%= link_to "New Court", new_court_path %>
 
       <div class="row justify-content-center">
-            <div class="col-6 m-3">
+            <div class="col-6 m-3 ">
                   <% @courts.each do |court| %>
                   <%= link_to court_path(court.id) do%>
-                        <div class="container m-3 p-3 border">
+                        <div class="container m-3 p-3 border bg-light">
                               <% if court.photos.attached? %>
                                     <% court.photos.each do |photo| %>
                                     <%= cl_image_tag photo.key, height: 100, width: 120, crop: :fill %>
