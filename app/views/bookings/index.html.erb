@@ -8,9 +8,13 @@
 <div class="row justify-content-center">
   <div class="col-6 m-3">
     <% @bookings.each do |booking| %>
-      <div class="container border m-3">
+      <div class="border m-3">
         <div class="card-img">
-
+          <% if booking.court.photos.attached? %>
+            <%= cl_image_tag booking.court.photos[0].key, alt: "alttext", height: 100, width: 120, crop: :fill %>
+          <% else %>
+            <%= image_tag "https://www.openplay.co.uk/uploads/6Z9XOO8BE6cxIW6b-600x_.jpg", alt: "alttext" %>
+          <% end %>
         </div>
         <h4><%= booking.date %></h4>
       </div>

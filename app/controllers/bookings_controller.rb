@@ -13,9 +13,8 @@ class BookingsController < ApplicationController
     @court = Court.find(params[:court_id])
     @booking.court = @court
     @booking.user = current_user
-    @booking.save!
-    if @booking.save
-      redirect_to court_bookings_path
+    if @booking.save!
+      redirect_to bookings_path
     else
       render :new
     end
