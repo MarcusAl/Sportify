@@ -1,0 +1,9 @@
+<%= simple_form_for @court do |f| %>
+  <%= f.input :user_id %>
+  <%= f.input :address %>
+  <%= f.input :price, as: :numeric %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit %>
+<% end %>
+ 
+<%= link_to "Go Back", courts_path %>
