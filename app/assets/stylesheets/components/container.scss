@@ -7,7 +7,7 @@ body {
   background-color: #52b788;
   // background: rgb(82,183,136);
   // background: linear-gradient(90deg, rgba(82,183,102,1) 0%, rgba(82,183,136,1) 35%, rgba(204,247,110,2) 100%);
-  overflow: visible;
+  overflow-x: hidden;
 }
 
 .container-split:before {
@@ -18,7 +18,7 @@ body {
   position: absolute;
   // border: 2px solid white;
   height: 100%;
-  width: 120%;
+  width: 125%;
   top: -20px;
   left: -10%;
   transform: rotate(20deg);
@@ -30,6 +30,38 @@ body {
   width: 70vw;
   height: 50vh;
   position: relative;
+}
+
+.search-navbar-container {
+  display: flex;
+  align-items: center;
+
+  width: 82%;
+  height: 70px;
+  margin: 20px auto;
+  border-radius: 60px;
+
+  padding: 20px;
+  padding-top: 38px;
+  padding-bottom: 38px;
+  background-color: #fcfcfc;
+}
+
+.search-nav-col,
+.search-nav-col-1 {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  width: 60%;
+
+  border-left: #ddd solid 0.5px;
+  padding-left: 20px;
+  height: 50px;
+  align-items: left;
+}
+
+.search-nav-col-1 {
+  border: none;
 }
 
 @media (max-width: 720px) {

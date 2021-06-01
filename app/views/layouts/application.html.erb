@@ -14,9 +14,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body class="container-split">
-    <%= render 'navbarMain' %>
-    <%= render 'pageBtn' %>
-    <%= yield %>
+  <body>
+    <div class="container-control">
+      <div class="container-split">
+        <%= render 'navbarMain' %>
+        <%= render 'pageBtn' %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
