@@ -1,24 +1,25 @@
-<div class="container">
+<div class="container ">
   <div class="row justify-content-center mt-3">
     <div class="col-6">
       <h3 class="mb-3">Please enter the details of your court bellow.</h3>
+    <div class="col-6 bg-light p-4 rounded">
     <%= simple_form_for @court do |f| %>
       <%= f.input :address %>
       <%= f.input :description %>
       <%= f.input :price, as: :numeric %>
       <%= f.input :category, as: :radio_buttons, collection: %w(Indoor Outdoor) %>
       <%= f.input :surfaces, as: :radio_buttons, collection: %w(Clay Hardcore Grass Concrete) %>
-      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true }%>
       <div class="container ">
         <div class="row justify-content-center">
           <div class="col-3 m-3">
-          <%= f.submit %>
+          <%= f.submit  class: "btn btn-primary p-2 rounded" %>
           </div>
         </div>
       </div>
     <% end %>
     
-    <%= link_to "Go Back", courts_path %>
+    <%= link_to "Go Back", courts_path, class: "btn btn-secondary p-2 rounded" %>
 
     </div>
   </div>
