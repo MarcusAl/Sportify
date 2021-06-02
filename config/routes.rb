@@ -3,11 +3,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :courts do
-    resources :bookings, only: [:index, :new, :create]
+    resources :bookings, only: [:new, :create]
   end
-
-  resources :bookings, only: :delete
-  get "/pages/card", to: "pages#card"
+  resources :bookings, only: [:delete, :index]
 end
 
 

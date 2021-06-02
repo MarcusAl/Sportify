@@ -1,12 +1,85 @@
-.navbar-lewagon {
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  background-color: grey;
+}
+.navbar {
+  display: inline-flex;
+  width: 100%;
+  height: fit-content;
+  margin: 20px auto;
+  opacity: 1;
   justify-content: space-between;
-  background: white;
+  align-items: center;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-link,
+.navbar-link-end,
+.navbar-link-last {
+  list-style: none;
+  margin: 0 20px 0px 20px;
+  padding: 3px 0 3px 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-link > a,
+.nav-logo > a,
+.navbar-link-end > a,
+.navbar-link-last > a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #F5F5F5;
+}
+
+.navbar-link > a:hover,
+.navbar-logo:hover,
+.navbar-link-end:hover {
+  filter: brightness(200%);
+  border-bottom: white solid 2px;
+}
+
+.navbar-link-last:hover {
+  filter: brightness(150%);
+}
+
+.nav-logo {
+  margin-left: 20px;
+}
+
+.nav-logo-icon {
+  font-size: 30px;
+  color: white;
+}
+
+#login-icon {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+}
+
+.burger-icon {
+  padding: 5px 10px 5px 10px;
+  border-radius: 20px;
+}
+
+.dropdown-menu {
+  z-index: 2;
+  height: fit-content;
+  background-color: #52b788;
+  margin-top: 20px;
+}
+
+.dropdown-item {
+  font-family: 'Nunito', sans-serif;
+}
+
+#dropdown_login {
+  background-color: rgba(200, 200, 200, 0.3);
+  border-radius: 25px;
+  width: 110px;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
 }

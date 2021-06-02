@@ -2,6 +2,9 @@
 <html>
   <head>
     <title>Sportify</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.lime-green.min.css"/>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +15,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container-control">
+      <div class="container-split">
+        <%= render 'pages/navbarMain' %>
+        <%= render 'pages/pageBtn' %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

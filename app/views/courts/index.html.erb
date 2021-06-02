@@ -1,10 +1,30 @@
-<% @courts.each do |court| %>
 
-<%= court.address %>
-<%= court.price %>
-<% if court.photo.attached? %>
-<%= cl_image_tag(court.photo.key,
-      width: 400, height: 300, crop: :fill) %>
+<div class="container">
+<% if user_signed_in? %>
+<%= link_to "Signed Out",  destroy_user_session_path, method: :delete %>
+<% else %> 
+<%= link_to "Go to Login", user_session_path %>
 <% end %>
+
 <%= render 'shared/court_card', court: court %>
-<% end %>
+
+<%= link_to "New Court", new_court_path %>
+
+      <div class="row justify-content-center">
+            <div class="col-6 m-3 ">
+                  <% @courts.each do |court| %>
+                  <%= link_to court_path(court.id) do%>
+                        <div class="container m-3 p-3 border bg-light">
+                              <% if court.photos.attached? %>
+                                    <% court.photos.each do |photo| %>
+                                    <%= cl_image_tag photo.key, height: 100, width: 120, crop: :fill %>
+                                    <% end %>
+                              <% end %>
+                              <%= court.address %>
+                              <%= court.price %>
+                        </div>
+                        <% end %>
+                  <% end %>
+            </div>
+      </div>
+</div>

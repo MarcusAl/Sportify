@@ -1,0 +1,37 @@
+.search-nav-title,
+.search-nav-desc {
+  text-align: left;
+  font-family: 'Nunito', sans-serif;
+}
+
+.search-nav-title {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.search-nav-desc {
+  font-size: 15px;
+  margin-top: 0;
+  color: grey;
+  font-weight: lighter;
+  border: none;
+}
+
+.search-nav-desc:focus {
+  outline: none;
+}
+
+.pink-icon-lg {
+  font-size: 18px;
+  background-color: #ffc300;
+  border-radius:30px;
+  padding: 20px;
+  color: white;
+  border: none;
+}
+
+.pink-icon-lg:hover {
+  background-color: #4ecdc4;
+}

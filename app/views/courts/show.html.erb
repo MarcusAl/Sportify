@@ -1,0 +1,13 @@
+<div class="container m-3 p-3 border">
+    <% if @court.photos.attached? %>
+        <% @court.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 100, width: 120, crop: :fill %>
+        <% end %>
+    <% end %>
+    <%= @court.address %>
+    <%= @court.price %>
+</div>
+
+<%= link_to "Add a Booking", new_court_booking_path(@court) %>
+<br>
+<%= link_to "Go Back", courts_path %>
