@@ -6,7 +6,8 @@ body {
   font-family: 'Nunito', sans-serif;
   background-color: #f3f3f3;
 }
-.navbar {
+.navbar,
+.navbar2 {
   display: inline-flex;
   width: 100%;
   height: fit-content;
@@ -15,6 +16,12 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 1;
+}
+
+.navbar2 {
+  background-color: #f8f8f8;
+  height: 70px;
+  margin-top: 0;
 }
 
 .navbar-link,
@@ -51,6 +58,15 @@ body {
 .nav-logo-icon {
   font-size: 30px;
   color: #020;
+}
+
+.nav-logo-icon2 {
+  font-size: 30px;
+  color: rgba(82,183,102,1);
+}
+
+.nav-logo-2 {
+  color: rgba(82,183,102,1);
 }
 
 #login-icon {
