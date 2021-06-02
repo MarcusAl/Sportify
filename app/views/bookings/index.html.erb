@@ -1,48 +1,24 @@
 <%= render 'pages/navbar2' %>
 
 <div class="container">
-  <% if user_signed_in? %>
-  <%= link_to "Signed Out",  destroy_user_session_path, method: :delete %>
-  <% else %>
-  <%= link_to "Go to Login", user_session_path %>
-  <% end %>
-
   <div class="row justify-content-center bg-light rounded">
     <div class="row justify-content-center">
       <% @bookings.each do |booking| %>
-        <div class=" col-5 bookings-card border m-3 rounded">
-          <div class="card-img">
-            <% if booking.court.photos.attached? %>
-              <%= cl_image_tag booking.court.photos[0].key, alt: "alttext", height: 200, width: 400, crop: :fill %>
-            <% else %>
-              <%= image_tag "https://www.openplay.co.uk/uploads/6Z9XOO8BE6cxIW6b-600x_.jpg", alt: "alttext", height: 200, width: 400 %>
-            <% end %>
-          </div>
-          <h2><%= booking.court.address %></h2>
-          <p>Start: <%= booking.start_time %></p>
-          <p>End: <%= booking.end_time %></p>
-        </div>
-      </div>
-    <% end %>
-</div>
-
-
-      <!-- <div class="row justify-content-center">
-            <div class="col-6 m-3">
-                  < @courts.each do |court| %>
-                  <= link_to court_path(court.id) do%>
-                        <div class="container m-3 p-3 border">
-                              < if court.photos.attached? %>
-                                    < court.photos.each do |photo| %>
-                          = cl_image_tag photo.key, height: 100, width: 120, crop: :fill %>
-                                    < end %>
-                              < end %>
-                              <= court.address %>
-                              <= court.price %>
-                        </div>
-                        < end %>
-                  < end %>
+        <a href="/courts/<%= booking.court_id %>" class="text-decoration-none">
+          <div class=" col-5 bookings-card border m-3 rounded">
+            <div class="card-img ">
+              <% if booking.court.photos.attached? %>
+                <%= cl_image_tag booking.court.photos[0].key, alt: "alttext", height: 200, width: 400, crop: :fill %>
+              <% else %>
+                <%= image_tag "https://www.openplay.co.uk/uploads/6Z9XOO8BE6cxIW6b-600x_.jpg", alt: "alttext", height: 200, width: 400 %>
+              <% end %>
             </div>
-      </div>
+            <h2><%= booking.court.address %></h2>
+            <p>Start: <%= booking.start_time %></p>
+            <p>End: <%= booking.end_time %></p>
+          </div>
+        </div>
+        </a>
+    <% end %>
+  </div>
 </div>
- -->
