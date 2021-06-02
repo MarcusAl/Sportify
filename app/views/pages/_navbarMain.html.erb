@@ -4,7 +4,7 @@
       <div class="nav-logo d-flex">
         <i class="fas fa-table-tennis nav-logo-icon mr-1"></i>
         <%# <i class="fab fa-spotify nav-logo-icon shadow-sm p-3 mr-3 font-weight-bold"></i> %>
-        <a href="https://www.google.com" target="_blank_">
+        <a href= / target="_blank_">
           <h3 class="font-weight-bold text-off-black">Sportify</h3>
         </a>
       </div>
@@ -12,7 +12,7 @@
 <%# End Row %>
       <div class="d-inline-flex rounded text-center">
           <li class="navbar-link-end text-center">
-            <a href="https://www.google.com" target="_blank_">
+            <a href="/courts">
               About Us
             </a>
           </li>
@@ -26,11 +26,15 @@
               <i class="fas fa-bars m-0 burger-icon"></i>
               <div class="dropdown-menu rounded" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#">Edit Profile</a>
-                <a class="dropdown-item border-top" href="#">Bookings</a>
-                <a class="dropdown-item border-top border-bottom" href="#">Logout</a>
+                <a class="dropdown-item border-top" href= /bookings>Bookings</a>
+                  <% if user_signed_in? %>
+                  <%= link_to "Log Out",  destroy_user_session_path, method: :delete, class: "dropdown-item border-top border-bottom" %>
+                  <% else %> 
+                  <%= link_to "Login", user_session_path, class: "dropdown-item border-top border-bottom" %>
+                  <% end %>
               </div>
             </a>
-            <a href="http://" target="_blank">
+            <a href="#">
               <%# <i class="fas fa-user m-0" id="login-icon"></i> %>
               <div id="login-icon" class="material-icons mdl-badge mdl-badge--overlap" data-badge="1">account_box</div>
             </a>
@@ -40,3 +44,4 @@
 
     </nav>
 </div>
+
