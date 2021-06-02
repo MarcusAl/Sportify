@@ -1,15 +1,72 @@
 <%= render 'pages/navbar2' %>
 
-<div class="container m-3 p-3 border">
-    <% if @court.photos.attached? %>
-        <% @court.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 100, width: 120, crop: :fill %>
-        <% end %>
-    <% end %>
-    <%= @court.address %>
-    <%= @court.price %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <% if @court.photos.attached? %>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% @court.photos.each do |photo| %>
+              <div class="carousel-item active">
+                <%= cl_image_tag photo.key, alt: "alttext", class: 'd-block w-100' %>
+              </div>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      <% end %>
+      <div class="court-show-container">
+        <div class="description">
+          <h3>Description</h3>
+          <p><%= @court.description %> </p>
+        </div>
+        <div class="info">
+          <p>Price: <strong>£<%= @court.price %></strong></p>
+          <p>Category: <%= @court.category %> </p>
+          <p>Surface: <%= @court.surfaces %> </p>
+          <p>Address: <%= @court.address %></p>
+        </div>
+      </div>
+      <div class="map-container">
+        <img src="https://www.freecountrymaps.com/map/free/great_britain/wimbledon-map-great_britain-423749783.png" alt="">
+      </div>
+      <div class="court-show-btns">
+        <div class="court-buttons">
+          <%= link_to "Back", courts_path, class: "btn btn-secondary" %>
+          <%= link_to "Book this court", new_court_booking_path(@court), class: "btn btn-success" %>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Book this court", new_court_booking_path(@court) %>
-<br>
-<%= link_to "Back", courts_path %>
+
+
+
+
+
+
+
+
+
+
+<!--   < @court.photos[0] do |photo| %>
+              <div class="carousel-item active">
+                <= cl_image_tag photo.key, alt: "alttext", class: 'd-block w-100' %>
+              </div>
+            < end %>
+            < if @court.photos.length > 1 %>
+              < @court.photos[1..].each do |photo| %>
+                <div class="carousel-item">
+                  <= cl_image_tag photo.key, alt: "alttext", class: 'd-block w-100' %>
+                </div>
+              < end %>
+            < end %> -->

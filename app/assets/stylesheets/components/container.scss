@@ -90,3 +90,46 @@
 //     width: 400%;
 //   }
 // }
+
+.court-show-container {
+  display: flex;
+  margin-top: 32px;
+  justify-content: space-between;
+}
+
+.description {
+  width: 60%;
+  background-color: white;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.info {
+  width: 35%;
+  background-color: white;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.map-container {
+  border-radius: 16px;
+  margin-top: 16px;
+  height: 400px;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+  }
+}
+
+.court-show-btns {
+  background-color: white;
+  border-radius: 16px;
+  margin-top: 16px;
+  margin-bottom: 64px;
+  padding: 16px;
+  .court-buttons {
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
