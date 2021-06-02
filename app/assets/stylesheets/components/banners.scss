@@ -1,8 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital@1&display=swap');
+
 .banner-image {
-  height: 85vh;
-  width: 50vw;
+  height: 80vh;
   position: absolute;
-  right: 55vw;
+  left: 0;
   top: 23vh;
-  z-index: -1;
+}
+
+#banner-heading {
+  font-family: 'Sriracha', cursive;
+  letter-spacing: 0px;
+}
+
+.empty {
+  height: 20em;
+  width: 10em;
 }

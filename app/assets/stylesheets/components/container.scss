@@ -1,29 +1,14 @@
-// .container-split-1 {
-//   min-height: 50vh;
-//   background-color: salmon;
-// }
 
-body {
-  background-color: #206a5d;
-  // background: rgb(82,183,136);
-  // background: linear-gradient(90deg, rgba(82,183,102,1) 0%, rgba(82,183,136,1) 35%, rgba(204,247,110,2) 100%);
-  overflow-x: hidden;
+.diagonal-box {
+	background-image: linear-gradient(45deg, rgba(82,183,102,1), rgba(204,209,102,1));
+	transform: skewY(-11deg);
+  min-height: 85vh;
 }
 
-.container-split:before {
-  content: "";
-  background-color: #96bb7c;
-  // background: rgb(204,209,102);
-  // background: linear-gradient(90deg, rgba(82,183,102,1) 0%, rgba(82,183,136,1) 35%, rgba(204,209,102,1) 100%);
-  position: absolute;
-  // border: 2px solid white;
-  height: 100%;
-  width: 125%;
-  top: -20px;
-  left: -10%;
-  transform: rotate(20deg);
-  z-index: -1;
-  // display: none;
+.content {
+	max-width: 100%;
+	margin: 0 auto;
+	transform: skewY(11deg);
 }
 
 .banner-img-container {
@@ -35,34 +20,42 @@ body {
 .search-navbar-container {
   display: flex;
   align-items: center;
+  flex-shrink: 1;
+  flex-grow: 1;
 
-  width: 82%;
-  height: 70px;
-  margin: 20px auto;
+  width: 90%;
+  height: 60px;
   border-radius: 60px;
 
   padding: 20px;
-  padding-top: 38px;
-  padding-bottom: 38px;
-  background-color: #fcfcfc;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  background-color: #f4f4f4;
 }
 
 .search-nav-col,
 .search-nav-col-1 {
   display: flex;
   flex-direction: column;
-  flex-basis: 25%;
-  width: 60%;
+  flex: 1 1 25%;
 
   border-left: #ddd solid 0.5px;
-  padding-left: 20px;
+  padding-left: 15px;
   height: 50px;
-  align-items: left;
 }
 
 .search-nav-col-1 {
   border: none;
+  flex: 1 1 33%;
 }
+
+.search-nav-col,
+.search-nav-col-1,
+.search-nav-desc,
+.search-nav-desc-last {
+  transition: 300ms ease-in-out;
+}
+
 
 @media (max-width: 720px) {
   /* For a screen < 960px, this CSS will be read */
