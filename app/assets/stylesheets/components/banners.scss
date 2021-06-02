@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=B612+Mono:ital@1&display=swap');
 
+
 .banner-image {
   height: 80vh;
   position: absolute;
@@ -9,8 +10,10 @@
 }
 
 #banner-heading {
-  font-family: 'Sriracha', cursive;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
   letter-spacing: 0px;
+  color: white;
 }
 
 .empty {
