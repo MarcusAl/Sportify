@@ -1,19 +1,27 @@
+<%= render 'pages/navbar2' %>
+
+
+
 <div class="container">
-      <div class="row justify-content-center">
-            <div class="col-6 m-3 ">
+    
                   <% @courts.each do |court| %>
                   <%= link_to court_path(court.id) do%>
-                        <div class="container m-3 p-3 border bg-light">
-                              <% if court.photos.attached? %>
-                                    <% court.photos.each do |photo| %>
-                                    <%= cl_image_tag photo.key, height: 100, width: 120, crop: :fill %>
-                                    <% end %>
+
+                  <div class="card-product mt-3 p-3">
+                        <% if court.photos.attached? %>
+                              <% court.photos.each do |photo| %>
+                              <%= cl_image_tag photo.key, height: 100, width: 120, crop: :fill %>
                               <% end %>
-                              <%= court.address %>
-                              <%= court.price %>
+                        <% end %>
+                              <div class="card-trip-infos ml-3">
+                                    <div>
+                                          <h2><%= court.address %></h2>
+                                          <p><%= court.description %></p>
+                                    </div>
+                                    <h2 class="card-trip-pricing card-trip-user">£<%= court.price %></h2>
+                              </div>
                         </div>
                         <% end %>
                   <% end %>
-            </div>
-      </div>
+         
 </div>
