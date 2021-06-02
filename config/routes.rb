@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :courts do
     resources :bookings, only: [:new, :create]
   end
-
   resources :bookings, only: [:delete, :index]
 end
+
+
