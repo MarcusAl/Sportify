@@ -1,4 +1,5 @@
 class CourtsController < ApplicationController
+    before_action :authenticate_user!, only: :new
     def index
       @courts = Court.all
     end
