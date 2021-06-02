@@ -1,9 +1,4 @@
 <div class="container">
-  <% if user_signed_in? %>
-  <%= link_to "Signed Out",  destroy_user_session_path, method: :delete %>
-  <% else %>
-  <%= link_to "Go to Login", user_session_path %>
-  <% end %>
 
   <div class="row justify-content-center bg-light rounded">
     <div class="row justify-content-center">

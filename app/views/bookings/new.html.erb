@@ -1,7 +1,19 @@
-<%= simple_form_for [@user, @court, @booking] do |f| %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.submit %>
-<% end %>
+<div class="container ">
+  <div class="row justify-content-center mt-3">
+    <div class="col-6 bg-light p-4 rounded">
 
-<%= link_to "Go Back", court_path(@court.id) %>
+      <%= simple_form_for [@user, @court, @booking] do |f| %>
+        <%= f.input :start_time %>
+        <%= f.input :end_time %>
+      <div class="container ">
+        <div class="row justify-content-center">
+          <div class="col-3 m-3">
+          <%= f.submit class: "btn btn-primary p-2 rounded"%>
+          </div>
+        </div>
+        <%= link_to "Go Back", court_path(@court.id), class: "btn btn-secondary p-2 rounded" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
