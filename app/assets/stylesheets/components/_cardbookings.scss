@@ -1,14 +1,19 @@
 .bookings-card.mdl-card {
   width: 400px;
-  height: 400px;
+  height: 300px;
 }
 .bookings-card > .mdl-card__title {
   color: #fff;
   background:
-    url('../assets/demos/dog.png') bottom right 15% no-repeat rgba(250,250,250,0.1);
+   rgba(250,250,250,0.1);
 }
 
 .card-booking-desc {
   width: 400px;
   height: 400px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
 }

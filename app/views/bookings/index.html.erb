@@ -5,12 +5,12 @@
     <% @bookings.each do |booking| %>
     <div class="col-4 justify-content-center">
       <div class="bookings-card rounded mdl-card mt-3 mdl-shadow--2dp">
-        <div class="mdl-card__title mdl-card--expand">
-          <h2 class="mdl-card__title-text">Update</h2>
+        <div class="mdl-card__title mdl-card--expand justify-content-center">
+          <h2 class="mdl-card__title-text justify-content-center">Update</h2>
            <% if booking.court.photos.attached? %>
-          <%= link_to cl_image_tag(booking.court.photos[0].key), courts_path, alt: "image", class: "mg-fluid center-block", crop: :fill %>
+          <%= link_to cl_image_tag(booking.court.photos[0].key), courts_path, alt: "image", class: "mg-fluid center-block img-smalls justify-content-center", height: 100, width: 120, crop: :fill %>
           <% else %>
-            <%= image_tag "https://www.openplay.co.uk/uploads/6Z9XOO8BE6cxIW6b-600x_.jpg", alt: "alttext", class: "img-fluid center-block"%>
+            <%= image_tag "https://www.openplay.co.uk/uploads/6Z9XOO8BE6cxIW6b-600x_.jpg", alt: "alttext", class: "img-fluid center-block img-smalls justify-content-center"%>
           <% end %>
         </div>
         <div class="mdl-card__supporting-text text-center">
