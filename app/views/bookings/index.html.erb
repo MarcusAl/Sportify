@@ -4,32 +4,40 @@
         <div class="row justify-content-center mt-3">
     
         <% @bookings.each do |booking| %>
-          <div class="card border col-5" style="width: 30rem;">
+          <div class="card border-0 shadow-sm col-5 bg-transparent">
             <div class="card-header">
-              <a href="/courts/" class="btn w-100">
-                <h5 class="card-title text-center"><%= booking.court.address %></h5>
+              <a href="/courts/" class="btn">
+                <h5 class="card-title text-left font-weight-bolder nunito"><i class="far fa-calendar-plus nav-logo-icon2 mr-4"></i><%= booking.court.address %></h5>
               </a>
             </div>
                   <% if booking.court.photos.attached? %>
-                  <%= cl_image_tag booking.court.photos[0].key, alt: "image", class: "card-img-top img-fluid", style: "max-height: 400px", style: "max-height: 400px" %>
+                  <%= cl_image_tag booking.court.photos[0].key, alt: "image", class: "card-img-top img-fluid rounded", style: "max-height: 400px" %>
                   <% else %>
-                  <%= image_tag "https://www.openplay.co.uk/uploads/6Z9XOO8BE6cxIW6b-600x_.jpg", alt: "alttext", class: "card-img-top img-fluid"%>
+                  <%= image_tag "https://www.openplay.co.uk/uploads/6Z9XOO8BE6cxIW6b-600x_.jpg", alt: "alttext", class: "card-img-top img-fluid", style: "max-height: 400px"%>
                   <% end %>
               <div class="card-body">
-                <p class="card-text text-center"><%= (booking.court.created_at).strftime("Booked on %m/%d/%Y at %H:%M") %></p>
+                <p class="card-text text-left lead font-weight-bold"><%= (booking.court.created_at).strftime("Booked on %m/%d/%Y") %></p>
               </div>
+              <br>
               <div class="card-body row">
-                <div class="col-6">
+                <div class="col-5">
                     <div class="card-text">
-                        <a href="/courts/<%= booking.court_id %>" class="btn text-center">
-                          <p>Start: <%= (booking.start_time).strftime("%m/%d/%Y at %H:%M") %></p>
+                        <a href="/courts/<%= booking.court_id %>" class="btn text-left">
+                          <p class="lead">Start: <%= (booking.start_time).strftime("%m/%d/%Y at %H:%M") %></p>
                         </a>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                     <div class="card-text">
-                        <a href="/courts/<%= booking.court_id %>" class="btn text-center">
-                          <p>End: <%= (booking.end_time).strftime("%m/%d/%Y at %H:%M") %></p>
+                        <a href="/courts/<%= booking.court_id %>" class="btn text-left">
+                          <p class="lead">End: <%= (booking.end_time).strftime("%m/%d/%Y at %H:%M") %></p>
+                        </a>
+                    </div>
+                </div>  
+                <div class="col-2">
+                    <div class="card-text">
+                        <a href="/courts/<%= booking.court_id %>" class="btn text-left">
+                          <%# <i class="fas fa-check-circle pink-icon-lg p-1"></i> %>
                         </a>
                     </div>
                 </div>  
