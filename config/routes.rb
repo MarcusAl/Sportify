@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:delete, :index]
+  get '/pages/card', to: 'pages#card'
 end
 
 

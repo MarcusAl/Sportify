@@ -1,3 +1,11 @@
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  margin-left: 32px;
+}
+
+
 .card-container-3 {
   display: flex;
   justify-content: space-around;
@@ -25,7 +33,7 @@
 
 .title1 {
   font-size: 18px;
-  line-height: 15px;
+  line-height: 5px;
   max-height: 20px;
   text-overflow: ellipsis;
   color: rgb(34, 34, 34);
@@ -62,6 +70,40 @@
   margin-bottom: 5px;
 }
 
+.card-container-4 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.small-court-card {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 272px;
+  height: 272px;
+  border-radius: 30px;
+}
+
+.small-court-card > img {
+  height: 272px;
+  border-radius: 30px;
+  width: 100%;
+}
+
+.footer {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(221, 221, 221);
+}
+
+.icons {
+  display: block;
+  margin-left: 1200px;
+  font-size: 25px
+
+}
 // .card-container-1 {
 //   display: flex;
 //   justify-content: space-around;
