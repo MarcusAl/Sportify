@@ -2,6 +2,8 @@ class CourtsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
   def index
+      
+ 
     @courts = []
     courts2 = []
     Court.reindex
@@ -9,7 +11,13 @@ class CourtsController < ApplicationController
     location_count = location_results.total_count
 
 
-
+     @markers = @courts.geocoded.map do |court|
+      {
+        lat: court.latitude,
+        lng: court.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { court: court })
+      }
+    end
 
     
     # if location_count.positive?
@@ -31,6 +39,7 @@ class CourtsController < ApplicationController
 
   def show
     @court = Court.find(params[:id])
+    @markers = [{ lat: @court.latitude, lng: @court.longitude }] # info_window: render_to_string(partial: "info_window", locals: { @court: court })}]
   end
 
   def new
