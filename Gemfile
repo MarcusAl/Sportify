@@ -8,6 +8,7 @@ gem 'dotenv-rails'
 gem 'cloudinary'
 gem 'faker'
 gem 'geocoder'
+gem 'searchkick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 # Use postgresql as the database for Active Record
@@ -40,7 +41,6 @@ gem 'devise'
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

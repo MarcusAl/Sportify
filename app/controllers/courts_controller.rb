@@ -10,6 +10,12 @@ class CourtsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { court: court })
       }
     end
+    num = params[:price_range]
+    location = params[:location]
+    Court.reindex
+    courts = Court.search(where: { price: 1..num, address: location })
+    # location_courts = Court.search(location)
+    raise
   end
 
   def show
