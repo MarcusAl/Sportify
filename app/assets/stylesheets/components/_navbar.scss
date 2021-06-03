@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 body {
+  margin-top: 70px;
   font-size: 14px;
   font-family: 'Nunito', sans-serif;
   background-color: #f3f3f3;
@@ -98,4 +99,9 @@ body {
   justify-content: center;
   align-items: center;
   display: inline-flex;
+}
+
+.sticky{
+  position: fixed;
+  top: 0;
 }
