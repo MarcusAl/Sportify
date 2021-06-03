@@ -1,16 +1,63 @@
 <%= render 'pages/navbar2' %>
+<div id="courts-index-page">
+  <div class="courts-index-container mr-5 ml-5 mt-5">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <% if @court.photos.attached? %>
+          <% @court.photos.each do |photo| %>
+            <div class="carousel-item active">
+              <%= cl_image_tag photo.key, alt: "alttext", class: 'd-block w-100' %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="carousel-item active">
+            <%= image_tag 'https://media.architecturaldigest.com/photos/596d2d14fde163455758e211/master/w_1000,h_667,c_limit/goldstein.jpg', alt: "alttext", class: 'd-block w-100' %>
+          </div>
+        <% end %>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="court-show-container">
+      <div class="description">
+        <h3><%= @court.title %></h3>
+        <p><%= @court.description %> </p>
+      </div>
+      <div class="info">
+        <p>Price: <strong>£<%= @court.price %>/Hr</strong></p>
+        <p>Category: <%= @court.category %> </p>
+        <p>Surface: <%= @court.surfaces %> </p>
+        <p>Address: <%= @court.address %></p>
+      </div>
+    </div>
+    <div class="court-show-btns mt-4">
+      <div class="court-buttons">
+        <%= link_to "Back", courts_path, class: "btn btn-secondary" %>
+        <%= link_to "Book this court", new_court_booking_path(@court), class: "btn btn-success" %>
+      </div>
+    </div>
+  </div>
+  <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
 
-<div class="container">
+<!-- <div class="container">
   <div class="row justify-content-center">
     <div class="col-8">
-      <% if @court.photos.attached? %>
+      < if @court.photos.attached? >
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <% @court.photos.each do |photo| %>
+            < @court.photos.each do |photo| >
               <div class="carousel-item active">
-                <%= cl_image_tag photo.key, alt: "alttext", class: 'd-block w-100' %>
+                <= cl_image_tag photo.key, alt: "alttext", class: 'd-block w-100' >
               </div>
-            <% end %>
+            < end >
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -21,17 +68,17 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-      <% end %>
+      < end >
       <div class="court-show-container">
         <div class="description">
           <h3>Description</h3>
-          <p><%= @court.description %> </p>
+          <p><= @court.description > </p>
         </div>
         <div class="info">
-          <p>Price: <strong>£<%= @court.price %>/Hr</strong></p>
-          <p>Category: <%= @court.category %> </p>
-          <p>Surface: <%= @court.surfaces %> </p>
-          <p>Address: <%= @court.address %></p>
+          <p>Price: <strong>£<= @court.price >/Hr</strong></p>
+          <p>Category: <= @court.category > </p>
+          <p>Surface: <= @court.surfaces > </p>
+          <p>Address: <= @court.address ></p>
         </div>
       </div>
       <div class="map-container">
@@ -39,14 +86,14 @@
       </div>
       <div class="court-show-btns">
         <div class="court-buttons">
-          <%= link_to "Back", courts_path, class: "btn btn-secondary" %>
-          <%= link_to "Book this court", new_court_booking_path(@court), class: "btn btn-success" %>
+          <= link_to "Back", courts_path, class: "btn btn-secondary" >
+          <= link_to "Book this court", new_court_booking_path(@court), class: "btn btn-success" >
         </div>
       </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
@@ -58,9 +105,9 @@
 
 
 
-<!--   < @court.photos[0] do |photo| %>
+<!--   < @court.photos[0] do |photo| >
               <div class="carousel-item active">
-                <= cl_image_tag photo.key, alt: "alttext", class: 'd-block w-100' %>
+                <= cl_image_tag photo.key, alt: "alttext", class: 'd-block w-100' >
               </div>
             < end %>
             < if @court.photos.length > 1 %>
