@@ -1,6 +1,6 @@
 <%= render 'pages/navbar2' %>
 <div id="courts-index-page">
-  <div class="courts-index-container mr-5 ml-5 mt-5">
+  <div class="courts-index-container m-5">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <% if @court.photos.attached? %>
@@ -36,11 +36,18 @@
         <p>Address: <%= @court.address %></p>
       </div>
     </div>
-    <div class="court-show-btns mt-4">
-      <div class="court-buttons">
-        <%= link_to "Back", courts_path, class: "btn btn-secondary" %>
-        <%= link_to "Book this court", new_court_booking_path(@court), class: "btn btn-success" %>
+    <div class="court-booking">
+      <h3>Book this court</h3>
+      <%= simple_form_for [@court, @booking] do |f| %>
+      <%= f.input :start_time, label: "From", as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :end_time, label: "To", as: :string, required: false, input_html: {class: "datepicker"} %>
+      <div>
+        <div class="d-inline-flex">
+          <%= f.submit  class: "btn btn-success rounded mt-3 shadow-sm" %>
+          <%= link_to "Back", courts_path, class: "btn btn-secondary rounded mt-3 ml-2 shadow-sm" %>
+        </div>
       </div>
+      <% end %>
     </div>
   </div>
   <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
