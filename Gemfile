@@ -3,12 +3,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+
+gem 'oj'
+gem 'searchkick', '~> 4.0'
+gem 'pg_search', '~> 2.3.0'
+
 gem "orm_adapter"
 gem 'dotenv-rails'
 gem 'cloudinary'
 gem 'faker'
 gem 'geocoder'
-gem 'searchkick'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.7'
 # Use postgresql as the database for Active Record
