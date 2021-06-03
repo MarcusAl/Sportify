@@ -8,21 +8,25 @@ class CourtsController < ApplicationController
     location_results = Court.search(params[:location])
     location_count = location_results.total_count
 
-    if location_count.positive?
-      location_results.each do |location|
-        price_check = location.price <= params[:price_range].to_f
-        courts2 << location if price_check
-        next if courts2.empty?
-      end
-      @courts = courts2
-    elsif params[:price_range] != ""
-      num = params[:price_range].to_f
-      sql_query = "price BETWEEN 0 AND #{num}"
-      courts2 = Court.where(sql_query)
-      @courts = courts2
-    else
-      @courts = Court.all
-    end
+
+
+
+    
+    # if location_count.positive?
+    #   location_results.each do |location|
+    #     price_check = location.price <= params[:price_range].to_f
+    #     courts2 << location if price_check
+    #     next if courts2.empty?
+    #   end
+    #   @courts = courts2
+    # elsif params[:price_range] != ""
+    #   num = params[:price_range].to_f
+    #   sql_query = "price BETWEEN 0 AND #{num}"
+    #   courts2 = Court.where(sql_query)
+    #   @courts = courts2
+    # else
+    #   @courts = Court.all
+    # end
   end
 
   def show
@@ -47,6 +51,6 @@ class CourtsController < ApplicationController
   private
 
   def court_params
-    params.require(:court).permit(:user_id, :address, :price, :description, :surfaces, :category, photos: [])
+    params.require(:court).permit(:user_id, :address, :title, :price, :description, :surfaces, :category, photos: [])
   end
 end

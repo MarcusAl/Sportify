@@ -6,6 +6,7 @@
     <div class="bg-light p-4 rounded mx-auto w-75">
       <h3 class="mb-5">Please enter the details of your court below.</h3>
       <%= simple_form_for @court do |f| %>
+      <%= f.input :title, placeholder: "Awesome tennis court in Madrid" %>
       <%= f.input :address, placeholder: "666 Hillsbury Avenue" %>
       <%= f.input :description, placeholder: "Why your court is the best" %>
       <%= f.input :price, as: :numeric, placeholder: "A whole lot of m's" %>

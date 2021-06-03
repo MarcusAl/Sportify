@@ -1,27 +1,69 @@
 <%= render 'pages/navbar2' %>
+<div id="courts-index-page">
+  <div class="courts-index-container">
+    <% @courts.each do |court| %>
+      <a href="/courts/<%= court.id %>", class="btn text-decoration-none">
+        <div class="court-card-index-page">
+          <% if court.photos.attached? %>
+            <div class="court-image-index-page">
+              <%= cl_image_tag court.photos[0].key, alt: "alttext" %>
+            </div>
+          <% else %>
+            <div class="court-image-index-page">
+              <%= image_tag 'https://media.architecturaldigest.com/photos/596d2d14fde163455758e211/master/w_1000,h_667,c_limit/goldstein.jpg', alt: "alttext", crop: :fill %>
+            </div>
+          <% end %>
+          <div class="court-info-index-page">
+            <p><strong><%= court.title %></strong></p>
+            <p><%= court.description %></p>
+          </div>
+          <div class="court-price-index-page">
+            <p><strong>£<%= court.price %>/Hr</strong></p>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+  <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
 
 
 
-<div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
     
-                  <% @courts.each do |court| %>
-                  <%= link_to court_path(court.id), class: "text-decoration-none" do%>
+                  < @courts.each do |court| %>
+                  <= link_to court_path(court.id), class: "text-decoration-none" do%>
 
                   <div class="card-product mt-3 p-3 btn">
-                        <% if court.photos.attached? %>
-                              <% court.photos.each do |photo| %>
-                              <%= cl_image_tag photo.key, height: 100, width: 120, crop: :fill %>
-                              <% end %>
-                        <% end %>
+                        < if court.photos.attached? >
+                              < court.photos.each do |photo| >
+                              <= cl_image_tag photo.key, height: 100, width: 120, crop: :fill >
+                              < end >
+                        < end >
                               <div class="card-trip-infos ml-3">
                                     <div>
-                                          <h2><%= court.address %></h2>
-                                          <p><%= court.description %></p>
+                                          <h2><= court.address ></h2>
+                                          <p><= court.description ></p>
                                     </div>
-                                    <h2 class="card-trip-pricing card-trip-user">£<%= court.price %></h2>
+                                    <h2 class="card-trip-pricing card-trip-user">£<= court.price >/Hr</h2>
                               </div>
                         </div>
-                        <% end %>
-                  <% end %>
+                        < end >
+                  < end >
          
 </div>
+ -->
