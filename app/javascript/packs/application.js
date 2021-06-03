@@ -25,31 +25,21 @@ require("channels")
 // External imports
 import "bootstrap";
 import {initFlatpickr} from "../plugins/flatpickr";
+import { initUpdateNavbarOnScroll } from '../plugins/navbar';
+import { initMapbox } from '../plugins/init_mapbox';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
+  // Call your JS functions here
+  initUpdateNavbarOnScroll();
   initFlatpickr();
+  initMapbox();
 });
 
-import { initMapbox } from '../plugins/init_mapbox';
 
-document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-})
 
-window.onscroll = function() {myFunction()};
 
-var navbar = document.getElementById("navy");
-var sticky = navbar.offsetTop;
 
-function myFunction() {
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky")
-  } else {
-    navbar.classList.remove("sticky");
-  }
-}
+
