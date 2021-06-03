@@ -2,13 +2,13 @@ class CourtsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
   def index
-      
+    @courts = Court.all
  
-    @courts = []
-    courts2 = []
-    Court.reindex
-    location_results = Court.search(params[:location])
-    location_count = location_results.total_count
+    # @courts = []
+    # courts2 = []
+    # Court.reindex
+    # location_results = Court.search(params[:location])
+    # location_count = location_results.total_count
 
 
      @markers = @courts.geocoded.map do |court|
