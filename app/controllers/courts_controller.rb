@@ -3,27 +3,31 @@ class CourtsController < ApplicationController
 
   def index
     @courts = Court.all
- 
-    # @courts = []
-    # courts2 = []
-    # Court.reindex
-    # location_results = Court.search(params[:location])
-    # location_count = location_results.total_count
-
-
-     @markers = @courts.geocoded.map do |court|
+    @markers = @courts.geocoded.map do |court|
       {
         lat: court.latitude,
         lng: court.longitude,
         info_window: render_to_string(partial: "info_window", locals: { court: court })
       }
     end
+    arr = []
     num = params[:price_range]
     location = params[:location]
+    surfaces = params[:surface_type]
     Court.reindex
-    courts = Court.search(where: { price: 1..num, address: location })
-    # location_courts = Court.search(location)
-    raise
+    price_type = Court.search(where: { price: 1..num.to_f })
+    surface_type = Court.search(where: { surfaces: surfaces })
+    location_type = Court.search(where: { address: location })
+
+    price_type.each { |v| arr << v } unless price_type.total_count.zero?
+    surface_type.each { |f| arr << f } unless surface_type.total_count.zero?
+    location_type.each { |g| arr << g } unless location_type.total_count.zero?
+
+    if arr.empty?
+      @courts = Court.all
+    else
+      @courts = arr
+    end
   end
 
   def show
