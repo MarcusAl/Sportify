@@ -11,8 +11,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
     @court = Court.find(params[:court_id])
+    @booking = Booking.new(booking_params)
     @booking.court = @court
     @booking.user = current_user
     if @booking.save!

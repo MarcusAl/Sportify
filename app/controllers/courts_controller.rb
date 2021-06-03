@@ -14,6 +14,7 @@ class CourtsController < ApplicationController
 
   def show
     @court = Court.find(params[:id])
+    @booking = Booking.new
     @markers = [{ lat: @court.latitude, lng: @court.longitude }] # info_window: render_to_string(partial: "info_window", locals: { @court: court })}]
   end
 
