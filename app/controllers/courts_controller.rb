@@ -1,7 +1,20 @@
 class CourtsController < ApplicationController
     before_action :authenticate_user!, only: :new
     def index
-      @courts = Court.all
+      @courts = []
+      if params[:location] || params[:price_range]
+        # if params[:location]
+        #   sql_query = "address ILIKE :location"
+        #   @courts += Court.where(sql_query, location: "%#{params[:location]}%")
+        # end
+        if params[:price_range]
+          num = params[:price_range].to_f
+          sql_query = "price BETWEEN 0 AND #{num}"
+          @courts += Court.where(sql_query)
+        end
+      else
+        @courts = Court.all
+      end
     end
 
     def show
