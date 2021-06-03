@@ -1,5 +1,5 @@
 
-    <form class="search-navbar-container">
+    <form class="search-navbar-container" method="get" action="/courts/">
 
     <%# Col 1 %>
       <div class="search-nav-col-1">
@@ -10,20 +10,24 @@
     <%# Col 2 %>
       <div class="search-nav-col">
         <label class="search-nav-title">Check in</label>
-        <input class="search-nav-desc" type="text" name="location" placeholder="Add dates">
+        <input class="search-nav-desc" type="text" name="check_in" placeholder="Add dates">
       </div>
 
     <%# Col 3 %>
       <div class="search-nav-col">
         <label class="search-nav-title">Check out</label>
-        <input class="search-nav-desc" type="text" name="location" placeholder="Add dates">
+        <input class="search-nav-desc" type="text" name="check_out" placeholder="Add dates">
       </div>
 
     <%# Col 4 %>
       <div class="d-inline-flex align-items-center">
         <div class="search-nav-col col-9">
-          <label class="search-nav-title">Playing partners</label>
-          <input class="search-nav-desc-last" type="text" name="location" placeholder="Add partner">
+          <select name="price_range" class="custom-select search-nav-desc" id="price_range">
+            <option>Price Range...</option>
+            <option value=20.0>Budget</option>
+            <option value=40.0>Premium</option>
+            <option value=60.0>Luxury</option>
+          </select>
         </div>
         <div class="col-3">
           <button type="submit" class="fas fa-search pink-icon-lg"></button>

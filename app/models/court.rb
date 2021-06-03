@@ -5,6 +5,15 @@ class Court < ApplicationRecord
   validates :address, presence: true
   validates :price, presence: true
   has_many_attached :photos
-  validates :category, inclusion: { in: %w(Indoor Outdoor) }
-  validates :surfaces, inclusion: { in: %w(Clay Hardcore Grass Concrete) }
+  validates :category, inclusion: { in: %w[Indoor Outdoor] }
+  validates :surfaces, inclusion: { in: %w[Clay Hardcore Grass Concrete] }
+  searchkick
+  def search_data
+    {
+
+      address: address,
+      price: price.to_s
+
+    }
+  end
 end
