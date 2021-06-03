@@ -2,6 +2,7 @@
   box-sizing: border-box;
 }
 body {
+  margin-top: 70px;
   font-size: 14px;
   font-family: 'Nunito', sans-serif;
   background-color: #f3f3f3;
@@ -22,6 +23,7 @@ body {
   background-color: #f8f8f8;
   height: 70px;
   margin-top: 0;
+  z-index: 2;
 }
 
 .navbar-link,
@@ -98,4 +100,30 @@ body {
   justify-content: center;
   align-items: center;
   display: inline-flex;
+}
+
+
+.navbar3{
+  display: inline-flex;
+  width: 100%;
+  height: fit-content;
+  margin: 0 auto;
+  opacity: 1;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  background-color: white;
+  height: 70px;
+  margin-top: 0;
+  a{
+    color: #020 !important;
+  }
+  transition: 0.4s;
+  z-index: 1;
+}
+
+.sticky{
+  position: fixed;
+  top: 0;
+  z-index: 3;
 }
