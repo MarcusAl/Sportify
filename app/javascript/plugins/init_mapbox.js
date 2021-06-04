@@ -42,9 +42,9 @@ const initMapbox = () => {
     
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
-    map.once('load', () => {
-      map.resize();
-    })
+    // map.once('load', () => {
+    //   map.resize();
+    // })
     // document.querySelector('.mapboxgl-canvas').style.width = '100%';
     // document.querySelector('.mapboxgl-canvas').style.height = '100%';
   }
