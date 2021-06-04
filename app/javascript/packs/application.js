@@ -3,8 +3,9 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require ("jquery").start()
-require ("popper").start()
+//= require jquery
+//= require popper
+//= require bootstrap-modal
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -26,6 +27,8 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+import JQuery from 'jquery';
+window.$ = window.JQuery = JQuery;
 
 // External imports
 import "bootstrap";
