@@ -1,7 +1,9 @@
 <%= render 'devise/shared/login_form' %>
 
 <div id="page-btn">
-    <%= link_to "Login", "", data: {toggle: "modal", target: ".bd-example-modal-lg"} %>
+    <%= link_to "", data: {toggle: "modal", target: ".bd-example-modal-lg"} do %>
+      <i class="fas fa-plus pink-icon-lg text-decoration-none outline-none border-0"></i>
+    <% end %>
 </div>
 
 <%# alter the login link to trigger the opening of the modal  %>
