@@ -1,6 +1,7 @@
 class CourtsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
+  # rubocop:disable Metrics/MethodLength
   def index
     @courts = Court.all
 
@@ -33,8 +34,8 @@ class CourtsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { court: court })
       }
     end
-
   end
+  # rubocop:enable Metrics/MethodLength
 
   def show
     @court = Court.find(params[:id])
