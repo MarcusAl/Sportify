@@ -65,6 +65,7 @@ def index
   # rubocop:enable Metrics/MethodLength
 
   def show
+    #
     @court = Court.find(params[:id])
     @booking = Booking.new
     @markers = [{
