@@ -2,31 +2,23 @@ class CourtsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
   # rubocop:disable Metrics/MethodLength
-  def index
+def index
     @courts = Court.all
-
     num = params[:price_range].to_f
     location = params[:location]
     surfaces = params[:surface_type]
-
     price_query = Court.where(price: 10..num)
-
     location_query = Court.where(address: location)
-
     surface_query = Court.where(surfaces: surfaces)
-
     @collect = price_query + location_query + surface_query
     @collect = @collect.uniq
-
     @collect = @courts if @collect.empty?
-
     @collect.map do |court|
       {
         lat: court.latitude,
         lng: court.longitude
       }
     end
-
     @markers = @collect.map do |court|
       {
         lat: court.latitude,
@@ -35,6 +27,36 @@ class CourtsController < ApplicationController
         image_url: helpers.asset_url('map-marker3')
       }
     end
+  end
+
+    
+    # collect = @courts.select do |court|
+    #   court[:price].between?(10, num) && court[:address] == location && court[:surfaces] == surfaces
+    # end
+    
+    # query = Court.where(price: 10..num, address: location, surfaces: surfaces)
+
+    # unless query.empty?
+    #   query.each { |v| arr << v }
+    #   @courts += arr
+    # end
+
+    # arr = []
+    # Court.reindex
+    # price_type = Court.search(where: { price: 1..num })
+    # surface_type = Court.search(where: { surfaces: surfaces })
+    # location_type = Court.search(where: { address: location })
+
+    # price_type.each { |v| arr << v } unless price_type.total_count.zero?
+    # surface_type.each { |f| arr << f } unless surface_type.total_count.zero?
+    # location_type.each { |g| arr << g } unless location_type.total_count.zero?
+
+    # if arr.empty?
+    #   @courts = Court.all
+    # else
+    #   @courts = arr
+    # end
+
   end
   # rubocop:enable Metrics/MethodLength
 
