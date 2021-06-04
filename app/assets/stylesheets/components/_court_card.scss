@@ -102,12 +102,25 @@ h2 {
   border-top-width: 1px;
   border-top-style: solid;
   border-top-color: rgb(221, 221, 221);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .icons {
   display: block;
-  margin-left: 30px;
+  margin-left: 65px;
   font-size: 25px
+
+}
+
+.inc {
+  margin-left: 65px;
+}
+
+.btn-outline-primary {
+  margin-right: 65px;
+
 
 }
 // .card-container-1 {
