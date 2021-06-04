@@ -2,25 +2,24 @@ class CourtsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
   # rubocop:disable Metrics/MethodLength
-  def index
+def index
     @courts = Court.all
-
     num = params[:price_range].to_f
     location = params[:location]
     surfaces = params[:surface_type]
-
     price_query = Court.where(price: 10..num)
-
     location_query = Court.where(address: location)
-
     surface_query = Court.where(surfaces: surfaces)
-
     @collect = price_query + location_query + surface_query
     @collect = @collect.uniq
-
     @collect = @courts if @collect.empty?
-
-    @markers = @courts.geocoded.map do |court|
+    @collect.map do |court|
+      {
+        lat: court.latitude,
+        lng: court.longitude
+      }
+    end
+    @markers = @collect.map do |court|
       {
         lat: court.latitude,
         lng: court.longitude,
@@ -28,6 +27,7 @@ class CourtsController < ApplicationController
         image_url: helpers.asset_url('map-marker3')
       }
     end
+  end
 
     
     # collect = @courts.select do |court|
