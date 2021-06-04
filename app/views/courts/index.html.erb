@@ -1,7 +1,7 @@
 <%= render 'pages/navbar2' %>
 <div id="courts-index-page">
   <div class="courts-index-container">
-    <% @courts.each do |court| %>
+    <% @collect.each do |court| %>
       <a href="/courts/<%= court.id %>", class="btn text-decoration-none">
         <div class="court-card-index-page">
           <% if court.photos.attached? %>
