@@ -5,8 +5,8 @@ class CourtsController < ApplicationController
     @courts = Court.all
 
     num = params[:price_range].to_f
-    location = params[:location].capitalize unless params[:location].nil?
-    surfaces = params[:surface_type].capitalize unless params[:location].nil?
+    location = params[:location]
+    surfaces = params[:surface_type]
 
     price_query = Court.where(price: 10..num)
 
@@ -14,19 +14,12 @@ class CourtsController < ApplicationController
 
     surface_query = Court.where(surfaces: surfaces)
 
-    # @collect =  location_query + surface_query + price_query
-    @collect = @courts.select { |c| location_query.include?(c) && surface_query.include?(c) }
-    
-    # @naw = @collect.all? do |e|
-    #   location_query.include?(e)  &&  surface_query.include?(e)
-
-    # end
-    
-    
+    @collect = price_query + location_query + surface_query
+    @collect = @collect.uniq
 
     @collect = @courts if @collect.empty?
 
-    @markers = @collect.map do |court|
+    @markers = @courts.geocoded.map do |court|
       {
         lat: court.latitude,
         lng: court.longitude,
