@@ -41,7 +41,6 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   initFlatpickr();
   initMapbox();
-  
 });
 
 

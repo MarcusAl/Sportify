@@ -27,7 +27,6 @@ def index
         image_url: helpers.asset_url('map-marker3')
       }
     end
-  end
 
     
     # collect = @courts.select do |court|
