@@ -1,12 +1,12 @@
 <%= render 'pages/navbar2' %>
 
-<div class="container-fluid">
-        <div class="row justify-content-center mt-3">
+<div class="bookings-index-page-container">
+        <div class="row mt-3">
     
         <% @bookings.each do |booking| %>
-          <div class="card border-0 shadow-sm col-5 bg-transparent">
+          <div class="card border-0 shadow-sm col-6 bg-transparent m-0 mb-3">
             <div class="card-header">
-              <a href="/courts/" class="btn">
+              <a href="/courts/<%= booking.court_id %>" class="btn">
                 <h5 class="card-title text-left font-weight-bolder nunito"><i class="far fa-calendar-plus nav-logo-icon2 mr-4"></i><%= booking.court.address %></h5>
               </a>
             </div>

@@ -31,7 +31,8 @@ class CourtsController < ApplicationController
       {
         lat: court.latitude,
         lng: court.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { court: court })
+        info_window: render_to_string(partial: "info_window", locals: { court: court }),
+        image_url: helpers.asset_url('map-marker3')
       }
     end
   end
@@ -40,7 +41,12 @@ class CourtsController < ApplicationController
   def show
     @court = Court.find(params[:id])
     @booking = Booking.new
-    @markers = [{ lat: @court.latitude, lng: @court.longitude }] # info_window: render_to_string(partial: "info_window", locals: { @court: court })}]
+    @markers = [{
+      lat: @court.latitude,
+      lng: @court.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { court: @court }),
+      image_url: helpers.asset_url('map-marker3')
+    }]
   end
 
   def new
