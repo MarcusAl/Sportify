@@ -5,8 +5,8 @@ class CourtsController < ApplicationController
     @courts = Court.all
 
     num = params[:price_range].to_f
-    location = params[:location].capitalize
-    surfaces = params[:surface_type]
+    location = params[:location].capitalize unless params[:location].nil?
+    surfaces = params[:surface_type].capitalize unless params[:location].nil?
 
     price_query = Court.where(price: 10..num)
 
@@ -14,17 +14,17 @@ class CourtsController < ApplicationController
 
     surface_query = Court.where(surfaces: surfaces)
 
-    @collect = price_query + location_query + surface_query
-    @collect = @collect.uniq
+    # @collect =  location_query + surface_query + price_query
+    @collect = @courts.select { |c| location_query.include?(c) && surface_query.include?(c) }
+    
+    # @naw = @collect.all? do |e|
+    #   location_query.include?(e)  &&  surface_query.include?(e)
+
+    # end
+    
+    
 
     @collect = @courts if @collect.empty?
-
-    @collect.map do |court|
-      {
-        lat: court.latitude,
-        lng: court.longitude
-      }
-    end
 
     @markers = @collect.map do |court|
       {
@@ -33,7 +33,33 @@ class CourtsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { court: court })
       }
     end
+    
+    # collect = @courts.select do |court|
+    #   court[:price].between?(10, num) && court[:address] == location && court[:surfaces] == surfaces
+    # end
+    
+    # query = Court.where(price: 10..num, address: location, surfaces: surfaces)
 
+    # unless query.empty?
+    #   query.each { |v| arr << v }
+    #   @courts += arr
+    # end
+
+    # arr = []
+    # Court.reindex
+    # price_type = Court.search(where: { price: 1..num })
+    # surface_type = Court.search(where: { surfaces: surfaces })
+    # location_type = Court.search(where: { address: location })
+
+    # price_type.each { |v| arr << v } unless price_type.total_count.zero?
+    # surface_type.each { |f| arr << f } unless surface_type.total_count.zero?
+    # location_type.each { |g| arr << g } unless location_type.total_count.zero?
+
+    # if arr.empty?
+    #   @courts = Court.all
+    # else
+    #   @courts = arr
+    # end
   end
 
   def show
