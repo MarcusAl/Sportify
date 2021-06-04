@@ -7,9 +7,14 @@ def index
     num = params[:price_range].to_f
     location = params[:location]
     surfaces = params[:surface_type]
-    price_query = Court.where(price: 10..num)
+    price_query = Court.where(price: 10..num) 
     location_query = Court.where(address: location)
     surface_query = Court.where(surfaces: surfaces)
+
+
+
+
+
     @collect = price_query + location_query + surface_query
     @collect = @collect.uniq
     @collect = @courts if @collect.empty?
@@ -66,7 +71,7 @@ def index
       lat: @court.latitude,
       lng: @court.longitude,
       info_window: render_to_string(partial: "info_window", locals: { court: @court }),
-      image_url: helpers.asset_url('map-marker3')
+      image_url: helpers.asset_url('map-marker3.png')
     }]
   end
 
