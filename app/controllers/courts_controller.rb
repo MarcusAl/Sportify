@@ -5,7 +5,7 @@ class CourtsController < ApplicationController
     @courts = Court.all
 
     num = params[:price_range].to_f
-    location = params[:location]
+    location = params[:location].capitalize
     surfaces = params[:surface_type]
 
     price_query = Court.where(price: 10..num)
