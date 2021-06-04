@@ -1,6 +1,7 @@
 class CourtsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
+  # rubocop:disable Metrics/MethodLength
   def index
     @courts = Court.all
 
@@ -23,9 +24,11 @@ class CourtsController < ApplicationController
       {
         lat: court.latitude,
         lng: court.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { court: court })
+        info_window: render_to_string(partial: "info_window", locals: { court: court }),
+        image_url: helpers.asset_url('map-marker3')
       }
     end
+
     
     # collect = @courts.select do |court|
     #   court[:price].between?(10, num) && court[:address] == location && court[:surfaces] == surfaces
@@ -53,12 +56,19 @@ class CourtsController < ApplicationController
     # else
     #   @courts = arr
     # end
+
   end
+  # rubocop:enable Metrics/MethodLength
 
   def show
     @court = Court.find(params[:id])
     @booking = Booking.new
-    @markers = [{ lat: @court.latitude, lng: @court.longitude }] # info_window: render_to_string(partial: "info_window", locals: { @court: court })}]
+    @markers = [{
+      lat: @court.latitude,
+      lng: @court.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { court: @court }),
+      image_url: helpers.asset_url('map-marker3')
+    }]
   end
 
   def new

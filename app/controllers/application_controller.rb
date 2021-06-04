@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
       # For additional in app/views/devise/registrations/edit.html.erb
       devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
     end
+
+    def new
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    end
 end
