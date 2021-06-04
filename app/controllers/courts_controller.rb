@@ -29,7 +29,7 @@ def index
         lat: court.latitude,
         lng: court.longitude,
         info_window: render_to_string(partial: "info_window", locals: { court: court }),
-        image_url: helpers.asset_url('map-marker3')
+        image_url: helpers.asset_url('map-marker3.png')
       }
     end
 
