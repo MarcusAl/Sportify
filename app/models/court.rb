@@ -9,5 +9,4 @@ class Court < ApplicationRecord
   validates :surfaces, inclusion: { in: %w(Clay Hardcore Grass Concrete) }
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  searchkick
 end
