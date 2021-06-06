@@ -2,7 +2,7 @@ class CourtsController < ApplicationController
   before_action :authenticate_user!, only: :new
 
   # rubocop:disable Metrics/MethodLength
-def index
+  def index
     @courts = Court.all
     num = params[:price_range].to_f
     location = params[:location]
@@ -10,6 +10,7 @@ def index
     price_query = Court.where(price: 10..num)
     location_query = Court.where(address: location)
     surface_query = Court.where(surfaces: surfaces)
+
     @collect = price_query + location_query + surface_query
     @collect = @collect.uniq
     @collect = @courts if @collect.empty?
@@ -24,10 +25,10 @@ def index
         lat: court.latitude,
         lng: court.longitude,
         info_window: render_to_string(partial: "info_window", locals: { court: court }),
-        image_url: helpers.asset_url('map-marker3')
+        image_url: helpers.asset_url('map-marker3.png')
       }
     end
-end
+  end
   # rubocop:enable Metrics/MethodLength
 
   def show
@@ -37,7 +38,7 @@ end
       lat: @court.latitude,
       lng: @court.longitude,
       info_window: render_to_string(partial: "info_window", locals: { court: @court }),
-      image_url: helpers.asset_url('map-marker3')
+      image_url: helpers.asset_url('map-marker3.png')
     }]
   end
 
