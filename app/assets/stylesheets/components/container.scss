@@ -72,14 +72,11 @@
 }
 
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   /* For a screen < 960px, this CSS will be read */
-  .container-split:before {
-    height: 100%;
-    width: 200%;
-    top: 50px;
-    left: -10%;
-    transform: rotate(40deg);
+  .diagonal-box {
+    transform: skewY(-11deg);
+    max-height:10vh;
     z-index: -1;
   }
 }
