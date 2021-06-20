@@ -13,7 +13,7 @@
 [Live](https://sportify-599.herokuapp.com/)
 
 ### Screenshot
-<img align="center" alt="Screenshot" height="400px" src="Screenshot 2021-06-17 at 15.38.38.png"/>
+<img align="center" alt="Screenshot" height="400px" src="Screenshot 2021-06-17 at 15.38.13.png"/>
 
 ## Built With
 
